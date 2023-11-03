@@ -9,3 +9,5 @@ router.delete('/favorite/:_id', deleteFavorite)
 
 
 module.exports = router
+
+// http://localhost:3000/api/favorite

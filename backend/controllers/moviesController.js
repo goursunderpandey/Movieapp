@@ -73,6 +73,9 @@ const deleteFavorite=async (req,res)=>{
             data:data
         })
         
+
+        // return res.send(data)
+        
         
     } catch (error) {
         console.log("error", error.message);

@@ -13,14 +13,14 @@ const NavBar = () => {
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                <Button variant="primary" className="mx-1">
+                <Button variant="primary-outline" className="mx-1">
                   Home
                 </Button>
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/favorite" className="nav-link">
-                <Button variant="primary" className="mx-1">
+                <Button variant="primary-outline" className="mx-1">
                   Favorite
                 </Button>
               </Link>

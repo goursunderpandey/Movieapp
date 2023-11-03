@@ -1,24 +1,27 @@
 
-const express = require("express") 
-const Routes = require("./routes/routes.js")
-const cors = require("cors"); 
-const bodyParser = require("body-parser"); 
-const {connection} = require("./connection/db.js")
-const app= express()  
-const port= 5000      
+const express = require("express")  //importing express 
 
-app.use( bodyParser.urlencoded({ extended: false }) );      
-app.use( bodyParser.json() );   
-app.use( cors() );   
+const cors = require("cors");   //importing cors
+const bodyParser = require("body-parser"); // importing bodyparser
+require("dotenv").config(); // importing and using dotenv npm library to read data from .env file
+
+const {connection} = require("./connection/db.js") //importing database connection
+const allRoutes=require("./routes/routes.js")  // importing routes
+const app= express()  //using express 
+const port= process.env.PORT        // reading port data from .env file
+
+app.use( bodyParser.urlencoded({ extended: false }) );      // using bodyparser
+app.use( bodyParser.json() );   // using bodyparser
+app.use( cors() );   // using cors for cross origin requests
 
 
-connection();  
+connection();  //executing mongodb connection file
 
 app.get("/",(req,res)=>{
-    res.send("Node server running ")     
+    res.send("made with ❤️ from Anish")     //base api
 })
-app.use("/api", Routes);    
+app.use("/api", allRoutes);     //middleware 
 
 app.listen(port,()=>{
-    console.log(`server is up on :${port}`)   
+    console.log(`server is up on :${port}`)   //execution of express with particuler port
 })

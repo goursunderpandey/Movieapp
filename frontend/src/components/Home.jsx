@@ -72,7 +72,7 @@ const Home = () => {
         </Form>
       </div>
       <div className='main_container'>
-        {res.length === 0 ? <h3 className='p-2'> Search Movies </h3> :
+        {res.length === 0 ? <h2 className='p-2 '> Search Movies </h2> :
           <div className="row row-cols-1 row-cols-md-3 g-4">
             {res.map(result => (
               <Card key={result.imdbID} className="col mb-4">

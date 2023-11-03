@@ -1,14 +1,16 @@
-const mongoose = require("mongoose");
+const { MongoClient } = require('mongodb');
+let mongoose = require("mongoose");
+require("dotenv").config();
 
 
-const mongoooseurl = "mongodb+srv://sunderpandey53:sunder@cluster0.ejgd3ym.mongodb.net/?retryWrites=true&w=majority"
+const mongoLiveURI = process.env.MONGODB_LINK;
 
 
 
-const connect = async () => {
+const connectToMongo = async () => {
   // Connecting to database using connection string  
   await mongoose
-    .connect( mongoooseurl, 
+    .connect( mongoLiveURI, 
         { 
             useNewUrlParser: true, 
             useUnifiedTopology: true 
@@ -22,4 +24,4 @@ const connect = async () => {
     });
 };
 
-exports.connection = connect;
+exports.connection = connectToMongo;
